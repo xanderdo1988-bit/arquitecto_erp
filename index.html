@@ -33,76 +33,20 @@
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+        h1, h2, h3, .brand-name { font-family: 'Poppins', sans-serif; font-weight: 700; }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, .brand-name {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-        }
-
-        /* --- BACKGROUND BLOBS --- */
-        .blob-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-            pointer-events: none;
-        }
-
-        .blob {
-            position: absolute;
-            filter: blur(80px);
-            opacity: 0.15;
-            border-radius: 50%;
-        }
-
+        .blob-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; pointer-events: none; }
+        .blob { position: absolute; filter: blur(80px); opacity: 0.15; border-radius: 50%; }
         .blob-1 { width: 500px; height: 500px; background: var(--mid); top: -200px; right: -100px; }
         .blob-2 { width: 400px; height: 400px; background: var(--accent); bottom: -100px; left: -100px; }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        section { padding: 100px 0; }
 
-        section {
-            padding: 100px 0;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.8rem 1.8rem;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: var(--transition);
-            gap: 0.5rem;
-            cursor: pointer;
-            border: none;
-            font-size: 1rem;
-        }
-
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.8rem 1.8rem; border-radius: 50px; font-weight: 600; text-decoration: none; transition: var(--transition); gap: 0.5rem; cursor: pointer; border: none; font-size: 1rem; }
         .btn-primary { background-color: var(--primary); color: var(--white); }
         .btn-primary:hover { background-color: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(19, 96, 168, 0.3); }
         .btn-outline { border: 2px solid var(--primary); color: var(--primary); background: transparent; }
@@ -122,89 +66,68 @@
         .nav-menu a { text-decoration: none; color: var(--muted); font-weight: 500; transition: var(--transition); }
         .nav-menu a:hover { color: var(--primary); }
 
+        /* HERO */
         .hero { padding: 80px 0 120px; overflow: hidden; }
         .hero-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 60px; }
         .hero-content h1 { font-size: 3.5rem; line-height: 1.1; color: var(--primary-dark); margin-bottom: 1.5rem; }
-        .hero-content p { font-size: 1.25rem; color: var(--muted); margin-bottom: 2rem; }
-
         .device-frame { background: var(--white); padding: 10px; border-radius: 1.5rem; box-shadow: var(--shadow); transform: perspective(1000px) rotateY(-5deg); transition: var(--transition); }
         .device-frame img { width: 100%; height: auto; border-radius: 1rem; display: block; }
 
+        /* SERVICES */
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
         .service-card { background: var(--white); padding: 2.5rem; border-radius: var(--radius); box-shadow: var(--shadow); transition: var(--transition); border: 1px solid rgba(0,0,0,0.02); }
-        .service-card:hover { transform: translateY(-8px); border-color: var(--soft); }
+        .service-icon { width: 54px; height: 54px; background: rgba(19, 96, 168, 0.05); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; color: var(--primary); }
+        .service-list { list-style: none; padding-top: 1.5rem; border-top: 1px solid #f1f3f5; margin-top: 1rem; }
+        .service-list li { font-size: 0.9rem; margin-bottom: 6px; padding-left: 1.2rem; position: relative; }
+        .service-list li::before { content: "•"; position: absolute; left: 0; color: var(--accent); }
 
-        /* --- VIDEO CARDS UPDATED --- */
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; }
-        .video-card { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; transition: var(--transition); border: 1px solid rgba(0,0,0,0.05); }
-        
-        .video-thumb-container {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 9 / 16;
-            background: #000;
-            cursor: pointer;
-            overflow: hidden;
-        }
+        /* TABS SOLUTIONS */
+        .solutions-container { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+        .tabs-nav { display: flex; flex-direction: column; gap: 1rem; }
+        .tab-btn { padding: 1.5rem; background: var(--white); border: 1px solid transparent; border-radius: var(--radius); text-align: left; cursor: pointer; transition: var(--transition); box-shadow: var(--shadow); }
+        .tab-btn.active { border-color: var(--primary); background: var(--primary); color: var(--white); }
+        .tabs-content-wrapper { background: var(--white); padding: 3rem; border-radius: var(--radius); box-shadow: var(--shadow); }
+        .tab-panel { display: none; }
+        .tab-panel.active { display: block; animation: fadeIn 0.4s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        .video-thumb-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
+        /* METRICS & TIMELINE */
+        .experience-bg { background: var(--primary-dark); color: var(--white); }
+        .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; text-align: center; margin-bottom: 80px; }
+        .metric-item h3 { font-size: 3.5rem; color: var(--accent); }
+        .timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .step { text-align: center; }
+        .step-number { width: 60px; height: 60px; background: var(--accent); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; margin: 0 auto 1.5rem; }
 
-        .video-card:hover .video-thumb-container img {
-            transform: scale(1.05);
-            opacity: 0.7;
-        }
-
-        .play-overlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 70px;
-            height: 70px;
-            background: rgba(19, 96, 168, 0.9);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            transition: var(--transition);
-            box-shadow: 0 0 30px rgba(0,0,0,0.3);
-        }
-
-        .video-card:hover .play-overlay {
-            background: var(--accent);
-            transform: translate(-50%, -50%) scale(1.1);
-        }
-
-        .video-info { padding: 1.5rem; }
-        .video-info h3 { font-size: 1.2rem; color: var(--primary-dark); margin-bottom: 0.5rem; }
-        .video-info p { font-size: 0.9rem; color: var(--muted); line-height: 1.4; }
-
-        .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; }
-        .contact-info-card { background: var(--primary); color: var(--white); padding: 3rem; border-radius: var(--radius); }
-        .contact-form-box { background: var(--white); padding: 3rem; border-radius: var(--radius); box-shadow: var(--shadow); }
+        /* VIDEOS */
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
+        .video-card { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; border: 1px solid rgba(0,0,0,0.05); }
+        .video-thumb-container { position: relative; width: 100%; aspect-ratio: 9 / 16; background: #000; cursor: pointer; }
+        .video-thumb-container img { width: 100%; height: 100%; object-fit: cover; }
+        .play-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 70px; height: 70px; background: rgba(19, 96, 168, 0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; }
 
         .wa-float { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); z-index: 1000; }
 
-        @media (max-width: 992px) { .hero-grid, .contact-grid { grid-template-columns: 1fr; } .hero-content { text-align: center; } }
+        @media (max-width: 992px) { .hero-grid, .solutions-container, .timeline { grid-template-columns: 1fr; } .nav-menu { display: none; } }
     </style>
 </head>
 <body>
 
+    <div class="blob-bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
     <header>
         <div class="container nav-inner">
             <a href="#" class="logo-box">
-                <img src="logo.png" alt="Logo" onerror="this.src='https://picsum.photos/100/40?text=Alex+Cañas'">
+                <img src="logo.png" alt="Alexander Cañas" onerror="this.src='https://picsum.photos/120/40?text=Logo'">
                 <span class="brand-name">Alexander Cañas</span>
             </a>
             <ul class="nav-menu">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#soluciones">Soluciones</a></li>
                 <li><a href="#evidencia">Evidencia</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
@@ -215,120 +138,157 @@
     <section id="inicio" class="hero">
         <div class="container hero-grid">
             <div class="hero-content reveal active">
-                <h1>Optimización Tecnológica para tu Empresa</h1>
-                <p>Implementación de sistemas, soporte experto y hardware corporativo de alta gama.</p>
+                <h1>Optimiza tu empresa con tecnología experta</h1>
+                <p>Implementación de ERP, soporte de infraestructura y mejora de procesos empresariales.</p>
                 <div class="hero-ctas">
-                    <a href="#contacto" class="btn btn-primary">Agendar Consultoría</a>
-                    <a href="#evidencia" class="btn btn-outline">Ver Resultados</a>
+                    <a href="https://wa.me/573225051696" target="_blank" class="btn btn-primary">Hablar por WhatsApp</a>
+                    <a href="#evidencia" class="btn btn-outline">Ver evidencia</a>
                 </div>
             </div>
             <div class="hero-visual reveal active">
                 <div class="device-frame">
-                    <img src="presentacion.png" alt="Sistemas" onerror="this.src='https://picsum.photos/600/800?text=Startup+IT'">
+                    <img src="presentacion.png" alt="Presentación Marca" onerror="this.src='https://picsum.photos/800/600?text=Consultoria+IT'">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION EVIDENCIA: FIXED FOR ERROR 153 -->
-    <section id="evidencia" class="reveal active">
+    <!-- SERVICIOS -->
+    <section id="servicios" class="reveal">
         <div class="container">
             <div class="section-header">
-                <h2>Evidencia y Resultados</h2>
-                <p>Mira nuestras soluciones en acción. Haz clic en cualquier video para reproducirlo sin errores.</p>
+                <h2>Servicios Premium</h2>
+                <p>Soluciones integrales diseñadas para mejorar la eficiencia de tu negocio.</p>
             </div>
-            <div class="video-grid" id="video-grid">
-                <!-- Inyectado por JS -->
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line></svg></div>
+                    <h3>Implementación ERP</h3>
+                    <p>Configuración robusta de sistemas de gestión adaptada a tus necesidades.</p>
+                    <ul class="service-list"><li>Migración de datos</li><li>Parametrización contable</li></ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8.5" cy="7" r="4"></circle><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path></svg></div>
+                    <h3>Consultoría de Procesos</h3>
+                    <p>Optimización de flujos de trabajo en áreas críticas.</p>
+                    <ul class="service-list"><li>Auditoría de inventarios</li><li>Cierres contables</li></ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div>
+                    <h3>Venta de Equipos</h3>
+                    <p>Hardware corporativo de alto rendimiento.</p>
+                    <ul class="service-list"><li>Workstations</li><li>Licenciamiento original</li></ul>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="contacto" class="reveal active">
+    <!-- SOLUCIONES TABS -->
+    <section id="soluciones" class="reveal" style="background: #f8faff;">
         <div class="container">
-            <div class="contact-grid">
-                <div class="contact-info-card">
-                    <h2>¿Listo para empezar?</h2>
-                    <p>Cuéntanos tu reto y Alexander se pondrá en contacto contigo.</p>
-                    <div style="margin-top: 2rem;">
-                        <p><strong>Email:</strong> xanderdo1988@gmail.com</p>
-                        <p><strong>WhatsApp:</strong> +57 322 505 1696</p>
+            <div class="section-header">
+                <h2>Soluciones Especializadas</h2>
+                <p>Retos comunes resueltos con tecnología.</p>
+            </div>
+            <div class="solutions-container">
+                <div class="tabs-nav">
+                    <button class="tab-btn active" onclick="showTab(0)"><h4>Facturación y POS</h4></button>
+                    <button class="tab-btn" onclick="showTab(1)"><h4>Control de Inventarios</h4></button>
+                </div>
+                <div class="tabs-content-wrapper">
+                    <div id="panel-0" class="tab-panel active">
+                        <h3>Ventas Ágiles</h3>
+                        <p>Facturación electrónica en segundos y control total del punto de venta.</p>
+                    </div>
+                    <div id="panel-1" class="tab-panel">
+                        <h3>Stock Inteligente</h3>
+                        <p>Evita el robo hormiga y mantén tus costos actualizados automáticamente.</p>
                     </div>
                 </div>
-                <div class="contact-form-box">
-                    <form onsubmit="sendToWA(); return false;">
-                        <div style="margin-bottom: 1rem;">
-                            <label style="display:block; margin-bottom:.5rem;">Nombre</label>
-                            <input type="text" id="nombre" style="width:100%; padding:.8rem; border:1px solid #ddd; border-radius:8px;" required>
-                        </div>
-                        <div style="margin-bottom: 1.5rem;">
-                            <label style="display:block; margin-bottom:.5rem;">Mensaje</label>
-                            <textarea id="mensaje" style="width:100%; padding:.8rem; border:1px solid #ddd; border-radius:8px;" rows="4" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-full" style="width:100%">Enviar Mensaje</button>
-                    </form>
-                </div>
             </div>
+        </div>
+    </section>
+
+    <!-- METRICAS Y METODOLOGIA -->
+    <section class="experience-bg reveal">
+        <div class="container">
+            <div class="metrics-grid">
+                <div class="metric-item"><h3>+50</h3><p>Empresas</p></div>
+                <div class="metric-item"><h3>99%</h3><p>SLA Respuesta</p></div>
+            </div>
+            <div class="timeline">
+                <div class="step"><div class="step-number">1</div><h4>Diagnóstico</h4></div>
+                <div class="step"><div class="step-number">2</div><h4>Ejecución</h4></div>
+                <div class="step"><div class="step-number">3</div><h4>Soporte</h4></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EVIDENCIA VIDEO (CON LA SOLUCION AL ERROR 153) -->
+    <section id="evidencia" class="reveal">
+        <div class="container">
+            <div class="section-header">
+                <h2>Casos de Éxito</h2>
+                <p>Mira cómo transformamos la operación de nuestros clientes.</p>
+            </div>
+            <div class="video-grid" id="video-grid"></div>
+        </div>
+    </section>
+
+    <section id="contacto" class="reveal">
+        <div class="container">
+            <div class="section-header"><h2>Contacto</h2></div>
+            <form onsubmit="sendToWA(); return false;" style="max-width: 600px; margin: 0 auto; background: white; padding: 2rem; border-radius: 1rem; box-shadow: var(--shadow);">
+                <input type="text" id="nombre" placeholder="Tu Nombre" style="width:100%; padding:1rem; margin-bottom:1rem; border:1px solid #ddd; border-radius:8px;" required>
+                <textarea id="mensaje" placeholder="¿En qué podemos ayudarte?" style="width:100%; padding:1rem; margin-bottom:1rem; border:1px solid #ddd; border-radius:8px;" rows="4" required></textarea>
+                <button type="submit" class="btn btn-primary" style="width:100%">Enviar a WhatsApp</button>
+            </form>
         </div>
     </section>
 
     <a href="https://wa.me/573225051696" class="wa-float" target="_blank">
-        <svg width="34" height="34" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </a>
 
     <script>
-        // Data de videos
+        // Reveal scroll
+        window.addEventListener('scroll', () => {
+            document.querySelectorAll('.reveal').forEach(el => {
+                if(el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active');
+            });
+        });
+
+        // Tabs
+        function showTab(i) {
+            document.querySelectorAll('.tab-btn, .tab-panel').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn')[i].classList.add('active');
+            document.querySelectorAll('.tab-panel')[i].classList.add('active');
+        }
+
+        // Videos with Poster solution (Error 153 fix)
         const videos = [
-            { id: "1h8X4Zkr-3s", title: "Implementación ERP", desc: "Configuración y puesta en marcha de sistemas para grandes superficies." },
-            { id: "Jmfqyh4k4dU", title: "Optimización IT", desc: "Mejora de infraestructura y rendimiento corporativo." },
-            { id: "xJ7WOL_Mx8I", title: "Soporte Especializado", desc: "Resolución de incidencias críticas en tiempo récord." }
+            { id: "1h8X4Zkr-3s", title: "Implementación ERP", desc: "Configuración profesional." },
+            { id: "Jmfqyh4k4dU", title: "Optimización IT", desc: "Infraestructura moderna." },
+            { id: "xJ7WOL_Mx8I", title: "Soporte", desc: "Asistencia rápida." }
         ];
 
-        const grid = document.getElementById('video-grid');
-
+        const vGrid = document.getElementById('video-grid');
         videos.forEach(v => {
             const card = document.createElement('div');
             card.className = 'video-card';
-            // Usamos la miniatura HQ de YouTube para evitar el Error 153 inicial
-            const thumbUrl = `https://img.youtube.com/vi/${v.id}/maxresdefault.jpg`;
-            
+            const thumb = `https://img.youtube.com/vi/${v.id}/maxresdefault.jpg`;
             card.innerHTML = `
                 <div class="video-thumb-container" onclick="playVideo(this, '${v.id}')">
-                    <img src="${thumbUrl}" alt="${v.title}" onerror="this.src='https://img.youtube.com/vi/${v.id}/0.jpg'">
-                    <div class="play-overlay">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                    </div>
+                    <img src="${thumb}" onerror="this.src='https://img.youtube.com/vi/${v.id}/0.jpg'">
+                    <div class="play-overlay"><svg width="30" height="30" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div>
                 </div>
-                <div class="video-info">
-                    <h3>${v.title}</h3>
-                    <p>${v.desc}</p>
-                </div>
+                <div class="video-info"><h3>${v.title}</h3><p>${v.desc}</p></div>
             `;
-            grid.appendChild(card);
+            vGrid.appendChild(card);
         });
 
-        // Función para inyectar el video solo cuando el usuario lo pida
-        // O redirigir a YouTube si el entorno falla
-        function playVideo(container, id) {
-            // Si estamos en un entorno restrictivo, a veces es mejor abrir en pestaña nueva
-            // Pero intentaremos inyectar el iframe con dominio no-cookie primero
-            const iframe = document.createElement('iframe');
-            iframe.setAttribute('src', `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`);
-            iframe.setAttribute('frameborder', '0');
-            iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
-            iframe.setAttribute('allowfullscreen', 'true');
-            iframe.style.width = '100%';
-            iframe.style.height = '100%';
-            iframe.style.position = 'absolute';
-            iframe.style.top = '0';
-            iframe.style.left = '0';
-            
-            // Reemplazamos el contenido para "limpiar" el posible Error 153
-            container.innerHTML = '';
-            container.appendChild(iframe);
-
-            // Pequeño hack: Si después de 3 segundos el iframe sigue dando problemas (o el usuario no puede verlo),
-            // ofrecemos un link directo.
-            console.log("Intentando reproducir video: " + id);
+        function playVideo(c, id) {
+            c.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1" style="width:100%;height:100%;border:0;position:absolute;top:0;left:0;" allow="autoplay; fullscreen"></iframe>`;
         }
 
         function sendToWA() {
@@ -336,13 +296,6 @@
             const m = document.getElementById('mensaje').value;
             window.open(`https://wa.me/573225051696?text=Hola Alexander, soy ${n}. ${m}`, '_blank');
         }
-
-        // Reveal effect
-        window.addEventListener('scroll', () => {
-            document.querySelectorAll('.reveal').forEach(el => {
-                if(el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active');
-            });
-        });
     </script>
 </body>
 </html>
