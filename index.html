@@ -103,8 +103,9 @@
         .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
         .video-card { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; border: 1px solid rgba(0,0,0,0.05); }
         .video-thumb-container { position: relative; width: 100%; aspect-ratio: 9 / 16; background: #000; cursor: pointer; }
-        .video-thumb-container img { width: 100%; height: 100%; object-fit: cover; }
-        .play-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 70px; height: 70px; background: rgba(19, 96, 168, 0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; }
+        .video-thumb-container img { width: 100%; height: 100%; object-fit: cover; transition: opacity 0.3s; }
+        .video-thumb-container:hover img { opacity: 0.8; }
+        .play-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 70px; height: 70px; background: rgba(19, 96, 168, 0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; box-shadow: 0 5px 20px rgba(0,0,0,0.3); pointer-events: none; }
 
         .wa-float { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); z-index: 1000; }
 
@@ -224,7 +225,7 @@
         </div>
     </section>
 
-    <!-- EVIDENCIA VIDEO (CON LA SOLUCION AL ERROR 153) -->
+    <!-- EVIDENCIA VIDEO (CORREGIDO) -->
     <section id="evidencia" class="reveal">
         <div class="container">
             <div class="section-header">
@@ -265,7 +266,7 @@
             document.querySelectorAll('.tab-panel')[i].classList.add('active');
         }
 
-        // Videos with Poster solution (Error 153 fix)
+        // Videos with Poster solution (Error 153 fix + Autoplay Policy fix)
         const videos = [
             { id: "1h8X4Zkr-3s", title: "Implementación ERP", desc: "Configuración profesional." },
             { id: "Jmfqyh4k4dU", title: "Optimización IT", desc: "Infraestructura moderna." },
@@ -288,7 +289,13 @@
         });
 
         function playVideo(c, id) {
-            c.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1" style="width:100%;height:100%;border:0;position:absolute;top:0;left:0;" allow="autoplay; fullscreen"></iframe>`;
+            // Se añade mute=1 y playsinline=1 para evitar bloqueos del navegador y pantallas negras.
+            // allow="autoplay" es crucial.
+            c.innerHTML = `<iframe 
+                src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&rel=0&modestbranding=1&playsinline=1" 
+                style="width:100%;height:100%;border:0;position:absolute;top:0;left:0;" 
+                allow="autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" 
+                frameborder="0"></iframe>`;
         }
 
         function sendToWA() {
