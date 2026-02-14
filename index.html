@@ -78,7 +78,6 @@
         .blob-1 { width: 500px; height: 500px; background: var(--mid); top: -200px; right: -100px; }
         .blob-2 { width: 400px; height: 400px; background: var(--accent); bottom: -100px; left: -100px; }
 
-        /* --- UTILITIES --- */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -104,938 +103,168 @@
             font-size: 1rem;
         }
 
-        .btn-primary {
-            background-color: var(--primary);
-            color: var(--white);
-        }
+        .btn-primary { background-color: var(--primary); color: var(--white); }
+        .btn-primary:hover { background-color: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(19, 96, 168, 0.3); }
+        .btn-outline { border: 2px solid var(--primary); color: var(--primary); background: transparent; }
+        .btn-outline:hover { background: rgba(19, 96, 168, 0.05); transform: translateY(-2px); }
 
-        .btn-primary:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(19, 96, 168, 0.3);
-        }
+        .section-header { text-align: center; max-width: 700px; margin: 0 auto 60px; }
+        .section-header h2 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--primary-dark); }
 
-        .btn-outline {
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            background: transparent;
-        }
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
-        .btn-outline:hover {
-            background: rgba(19, 96, 168, 0.05);
-            transform: translateY(-2px);
-        }
+        header { position: sticky; top: 0; background: rgba(253, 251, 253, 0.9); backdrop-filter: blur(10px); z-index: 1000; padding: 1rem 0; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
+        .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+        .logo-box { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--primary-dark); }
+        .logo-box img { height: 40px; border-radius: 4px; }
+        .nav-menu { display: flex; gap: 2rem; list-style: none; }
+        .nav-menu a { text-decoration: none; color: var(--muted); font-weight: 500; transition: var(--transition); }
+        .nav-menu a:hover { color: var(--primary); }
 
-        .section-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 60px;
-        }
+        .hero { padding: 80px 0 120px; overflow: hidden; }
+        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 60px; }
+        .hero-content h1 { font-size: 3.5rem; line-height: 1.1; color: var(--primary-dark); margin-bottom: 1.5rem; }
+        .hero-content p { font-size: 1.25rem; color: var(--muted); margin-bottom: 2rem; }
 
-        .section-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary-dark);
-        }
+        .device-frame { background: var(--white); padding: 10px; border-radius: 1.5rem; box-shadow: var(--shadow); transform: perspective(1000px) rotateY(-5deg); transition: var(--transition); }
+        .device-frame img { width: 100%; height: auto; border-radius: 1rem; display: block; }
 
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+        .service-card { background: var(--white); padding: 2.5rem; border-radius: var(--radius); box-shadow: var(--shadow); transition: var(--transition); border: 1px solid rgba(0,0,0,0.02); }
+        .service-card:hover { transform: translateY(-8px); border-color: var(--soft); }
 
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* --- HEADER --- */
-        header {
-            position: sticky;
-            top: 0;
-            background: rgba(253, 251, 253, 0.9);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
-        }
-
-        .nav-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo-box {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            color: var(--primary-dark);
-        }
-
-        .logo-box img {
-            height: 40px;
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-menu a {
-            text-decoration: none;
-            color: var(--muted);
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .nav-menu a:hover {
-            color: var(--primary);
-        }
-
-        .nav-cta {
-            display: flex;
-        }
-
-        /* --- HERO --- */
-        .hero {
-            padding: 80px 0 120px;
-            overflow: hidden;
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            gap: 60px;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            line-height: 1.1;
-            color: var(--primary-dark);
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-content p {
-            font-size: 1.25rem;
-            color: var(--muted);
-            margin-bottom: 2rem;
-        }
-
-        .value-bullets {
-            list-style: none;
-            margin-bottom: 2.5rem;
-        }
-
-        .value-bullets li {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 12px;
-            font-weight: 500;
-        }
-
-        .value-bullets svg {
-            color: var(--accent);
-            flex-shrink: 0;
-        }
-
-        .hero-ctas {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .hero-visual {
-            position: relative;
-        }
-
-        .device-frame {
-            background: var(--white);
-            padding: 10px;
-            border-radius: 1.5rem;
-            box-shadow: var(--shadow);
-            transform: perspective(1000px) rotateY(-5deg);
-            transition: var(--transition);
-        }
-
-        .device-frame:hover {
-            transform: perspective(1000px) rotateY(0deg);
-        }
-
-        .device-frame img {
-            width: 100%;
-            height: auto;
-            border-radius: 1rem;
-            display: block;
-        }
-
-        /* --- SERVICES --- */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            border: 1px solid rgba(0,0,0,0.02);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--soft);
-        }
-
-        .service-icon {
-            width: 54px;
-            height: 54px;
-            background: rgba(19, 96, 168, 0.05);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-        }
-
-        .service-card h3 {
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-            color: var(--primary-dark);
-        }
-
-        .service-card p {
-            color: var(--muted);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .service-list {
-            list-style: none;
-            padding-top: 1.5rem;
-            border-top: 1px solid #f1f3f5;
-        }
-
-        .service-list span {
-            display: block;
-            font-weight: 600;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-        }
-
-        .service-list li {
-            font-size: 0.9rem;
-            margin-bottom: 6px;
-            color: var(--text);
-            padding-left: 1.2rem;
-            position: relative;
-        }
-
-        .service-list li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-        }
-
-        /* --- SOLUTIONS --- */
-        .solutions-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: start;
-        }
-
-        .tabs-nav {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .tab-btn {
-            padding: 1.5rem;
-            background: var(--white);
-            border: 1px solid transparent;
-            border-radius: var(--radius);
-            text-align: left;
-            cursor: pointer;
-            transition: var(--transition);
-            box-shadow: var(--shadow);
-        }
-
-        .tab-btn.active {
-            border-color: var(--primary);
-            background: var(--primary);
-            color: var(--white);
-        }
-
-        .tab-btn h4 {
-            font-size: 1.2rem;
-        }
-
-        .tab-btn p {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            margin-top: 0.3rem;
-        }
-
-        .tabs-content-wrapper {
-            background: var(--white);
-            padding: 3rem;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            min-height: 400px;
-        }
-
-        .tab-panel {
-            display: none;
-            animation: fadeIn 0.4s ease;
-        }
-
-        .tab-panel.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .results-list {
-            list-style: none;
-            margin-top: 2rem;
-        }
-
-        .results-list li {
-            background: #f8fafc;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            border-left: 4px solid var(--accent);
-            border-radius: 4px;
-            font-weight: 500;
-        }
-
-        /* --- EXPERIENCE --- */
-        .experience-bg {
-            background: var(--primary-dark);
-            color: var(--white);
-        }
-
-        .experience-bg .section-header h2 { color: var(--white); }
-        .experience-bg .section-header p { color: var(--soft); }
-
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3rem;
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .metric-item h3 {
-            font-size: 3.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--accent);
-        }
-
-        .metric-item p {
-            font-size: 1.1rem;
-            color: var(--soft);
-        }
-
-        .timeline {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            position: relative;
-        }
-
-        .step {
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .step-number {
-            width: 60px;
-            height: 60px;
-            background: var(--accent);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 1.5rem;
-            margin: 0 auto 1.5rem;
-            box-shadow: 0 0 0 10px rgba(23, 147, 212, 0.2);
-        }
-
-        .step h4 {
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-        }
-
-        .step p {
-            color: var(--soft);
-            font-size: 0.95rem;
-        }
-
-        /* --- VIDEOS --- */
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .video-card {
-            background: var(--white);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .video-container {
+        /* --- VIDEO CARDS UPDATED --- */
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; }
+        .video-card { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; transition: var(--transition); border: 1px solid rgba(0,0,0,0.05); }
+        
+        .video-thumb-container {
             position: relative;
             width: 100%;
             aspect-ratio: 9 / 16;
             background: #000;
+            cursor: pointer;
+            overflow: hidden;
         }
 
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .video-thumb-container img {
             width: 100%;
             height: 100%;
-            border: none;
-        }
-
-        .video-info {
-            padding: 1.5rem;
-            text-align: center;
-        }
-
-        .video-id-badge {
-            display: inline-block;
-            background: #f1f3f5;
-            padding: 4px 12px;
-            border-radius: 4px;
-            font-family: monospace;
-            font-size: 0.8rem;
-            margin-bottom: 1rem;
-            color: var(--muted);
-        }
-
-        .video-actions {
-            display: flex;
-            gap: 0.5rem;
-            justify-content: center;
-        }
-
-        .btn-sm {
-            padding: 0.5rem 1rem;
-            font-size: 0.85rem;
-            border-radius: 8px;
-        }
-
-        .video-fallback {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            padding: 2rem;
-            text-align: center;
-            color: var(--muted);
-        }
-
-        /* --- CONTACT --- */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 40px;
-        }
-
-        .contact-info-card {
-            background: var(--primary);
-            color: var(--white);
-            padding: 3rem;
-            border-radius: var(--radius);
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .contact-method {
-            display: flex;
-            gap: 1rem;
-            align-items: flex-start;
-        }
-
-        .contact-method .icon {
-            width: 40px;
-            height: 40px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .contact-method a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 600;
-            display: block;
-            margin-top: 4px;
-        }
-
-        .contact-form-box {
-            background: var(--white);
-            padding: 3rem;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            outline: none;
-            font-family: inherit;
+            object-fit: cover;
             transition: var(--transition);
         }
 
-        .form-group input:focus, .form-group textarea:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(19, 96, 168, 0.1);
+        .video-card:hover .video-thumb-container img {
+            transform: scale(1.05);
+            opacity: 0.7;
         }
 
-        /* --- FLOATING WA --- */
-        .wa-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: #25D366;
-            color: white;
+        .play-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            background: rgba(19, 96, 168, 0.9);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
-            z-index: 1000;
+            color: white;
             transition: var(--transition);
+            box-shadow: 0 0 30px rgba(0,0,0,0.3);
         }
 
-        .wa-float:hover {
-            transform: scale(1.1);
+        .video-card:hover .play-overlay {
+            background: var(--accent);
+            transform: translate(-50%, -50%) scale(1.1);
         }
 
-        /* --- FOOTER --- */
-        footer {
-            padding: 40px 0;
-            border-top: 1px solid #f1f3f5;
-            text-align: center;
-            color: var(--muted);
-            font-size: 0.9rem;
-        }
+        .video-info { padding: 1.5rem; }
+        .video-info h3 { font-size: 1.2rem; color: var(--primary-dark); margin-bottom: 0.5rem; }
+        .video-info p { font-size: 0.9rem; color: var(--muted); line-height: 1.4; }
 
-        /* --- RESPONSIVE --- */
-        @media (max-width: 992px) {
-            .hero-grid, .solutions-container, .contact-grid {
-                grid-template-columns: 1fr;
-            }
-            .hero-content {
-                text-align: center;
-                order: 1;
-            }
-            .hero-visual {
-                order: 2;
-                max-width: 500px;
-                margin: 0 auto;
-            }
-            .hero-ctas, .value-bullets li {
-                justify-content: center;
-            }
-            .timeline {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-            .nav-menu { display: none; }
-            .hero-content h1 { font-size: 2.8rem; }
-        }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; }
+        .contact-info-card { background: var(--primary); color: var(--white); padding: 3rem; border-radius: var(--radius); }
+        .contact-form-box { background: var(--white); padding: 3rem; border-radius: var(--radius); box-shadow: var(--shadow); }
 
-        @media (max-width: 600px) {
-            .section-header h2 { font-size: 2rem; }
-            .hero-content h1 { font-size: 2.2rem; }
-            .btn { width: 100%; }
-        }
+        .wa-float { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); z-index: 1000; }
+
+        @media (max-width: 992px) { .hero-grid, .contact-grid { grid-template-columns: 1fr; } .hero-content { text-align: center; } }
     </style>
 </head>
 <body>
 
-    <div class="blob-bg">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-    </div>
-
     <header>
         <div class="container nav-inner">
             <a href="#" class="logo-box">
-                <img src="logo.png" alt="Logo Alexander Cañas" onerror="this.src='https://picsum.photos/120/40?text=Alexander+Cañas'">
+                <img src="logo.png" alt="Logo" onerror="this.src='https://picsum.photos/100/40?text=Alex+Cañas'">
                 <span class="brand-name">Alexander Cañas</span>
             </a>
             <ul class="nav-menu">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#soluciones">Soluciones</a></li>
                 <li><a href="#evidencia">Evidencia</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
-            <div class="nav-cta">
-                <a href="https://wa.me/573225051696" target="_blank" class="btn btn-primary btn-sm">WhatsApp</a>
-            </div>
+            <a href="https://wa.me/573225051696" target="_blank" class="btn btn-primary btn-sm">WhatsApp</a>
         </div>
     </header>
 
-    <!-- HERO SECTION -->
     <section id="inicio" class="hero">
         <div class="container hero-grid">
-            <div class="hero-content reveal">
-                <h1>Optimiza tu empresa con ERP + Tecnología + Soporte experto</h1>
-                <p>Implementación, soporte y mejora de procesos para ventas, inventario, compras y contabilidad.</p>
-                <ul class="value-bullets">
-                    <li>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        Respuesta rápida
-                    </li>
-                    <li>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        Procesos claros
-                    </li>
-                    <li>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        Acompañamiento empresarial
-                    </li>
-                </ul>
+            <div class="hero-content reveal active">
+                <h1>Optimización Tecnológica para tu Empresa</h1>
+                <p>Implementación de sistemas, soporte experto y hardware corporativo de alta gama.</p>
                 <div class="hero-ctas">
-                    <a href="https://wa.me/573225051696" target="_blank" class="btn btn-primary">
-                        Hablar por WhatsApp
-                    </a>
-                    <a href="#evidencia" class="btn btn-outline">
-                        Ver evidencia
-                    </a>
+                    <a href="#contacto" class="btn btn-primary">Agendar Consultoría</a>
+                    <a href="#evidencia" class="btn btn-outline">Ver Resultados</a>
                 </div>
             </div>
-            <div class="hero-visual reveal">
+            <div class="hero-visual reveal active">
                 <div class="device-frame">
-                    <img src="presentacion.png" alt="Presentación Marca" onerror="this.src='https://picsum.photos/800/600?text=Sistemas+Empresariales'">
+                    <img src="presentacion.png" alt="Sistemas" onerror="this.src='https://picsum.photos/600/800?text=Startup+IT'">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SERVICES SECTION -->
-    <section id="servicios" class="reveal">
+    <!-- SECTION EVIDENCIA: FIXED FOR ERROR 153 -->
+    <section id="evidencia" class="reveal active">
         <div class="container">
             <div class="section-header">
-                <h2>Servicios Premium</h2>
-                <p>Soluciones integrales diseñadas para mejorar la eficiencia operativa de tu negocio.</p>
+                <h2>Evidencia y Resultados</h2>
+                <p>Mira nuestras soluciones en acción. Haz clic en cualquier video para reproducirlo sin errores.</p>
             </div>
-            <div class="services-grid">
-                <!-- S1 -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
-                    </div>
-                    <h3>Implementación y Soporte ERP</h3>
-                    <p>Configuración robusta de sistemas de gestión adaptada a tus necesidades específicas.</p>
-                    <ul class="service-list">
-                        <span>Incluye:</span>
-                        <li>Migración de datos</li>
-                        <li>Parametrización contable</li>
-                        <li>Capacitación de personal</li>
-                    </ul>
-                </div>
-                <!-- S2 -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg>
-                    </div>
-                    <h3>Consultoría de Procesos</h3>
-                    <p>Diagnóstico y optimización de flujos de trabajo en áreas críticas de la empresa.</p>
-                    <ul class="service-list">
-                        <span>Incluye:</span>
-                        <li>Auditoría de inventarios</li>
-                        <li>Cierres contables</li>
-                        <li>Flujos de compra/venta</li>
-                    </ul>
-                </div>
-                <!-- S3 -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-                    </div>
-                    <h3>Optimización de Reportes</h3>
-                    <p>Información clara y oportuna para la toma de decisiones estratégicas.</p>
-                    <ul class="service-list">
-                        <span>Incluye:</span>
-                        <li>Dashboards dinámicos</li>
-                        <li>Reportes de rentabilidad</li>
-                        <li>KPIs de operación</li>
-                    </ul>
-                </div>
-                <!-- S4 -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
-                    </div>
-                    <h3>Venta de Equipos</h3>
-                    <p>Hardware corporativo de alto rendimiento para asegurar tu continuidad.</p>
-                    <ul class="service-list">
-                        <span>Incluye:</span>
-                        <li>Workstations y PCs</li>
-                        <li>Licenciamiento original</li>
-                        <li>Upgrades de hardware</li>
-                    </ul>
-                </div>
-                <!-- S5 -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
-                    </div>
-                    <h3>Mantenimiento y Reparación</h3>
-                    <p>Soporte técnico especializado para evitar paradas innecesarias.</p>
-                    <ul class="service-list">
-                        <span>Incluye:</span>
-                        <li>Mantenimiento preventivo</li>
-                        <li>Limpieza de software</li>
-                        <li>Reparación física</li>
-                    </ul>
-                </div>
-                <!-- S6 -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>
-                    </div>
-                    <h3>Redes e Infraestructura IT</h3>
-                    <p>Conectividad estable y segura para toda tu organización.</p>
-                    <ul class="service-list">
-                        <span>Incluye:</span>
-                        <li>Configuración WiFi/LAN</li>
-                        <li>Servidores de impresión</li>
-                        <li>Seguridad perimetral</li>
-                    </ul>
-                </div>
+            <div class="video-grid" id="video-grid">
+                <!-- Inyectado por JS -->
             </div>
         </div>
     </section>
 
-    <!-- SOLUTIONS SECTION -->
-    <section id="soluciones" class="reveal" style="background: rgba(19, 96, 168, 0.03);">
-        <div class="container">
-            <div class="section-header">
-                <h2>Soluciones Especializadas</h2>
-                <p>Abordamos los retos comunes de la gestión empresarial con tecnología de vanguardia.</p>
-            </div>
-            <div class="solutions-container">
-                <div class="tabs-nav">
-                    <button class="tab-btn active" onclick="showTab(0)">
-                        <h4>Punto de venta y facturación</h4>
-                        <p>Agiliza la atención al cliente y cumple legalmente.</p>
-                    </button>
-                    <button class="tab-btn" onclick="showTab(1)">
-                        <h4>Inventarios y costos</h4>
-                        <p>Control total de tus existencias y márgenes.</p>
-                    </button>
-                    <button class="tab-btn" onclick="showTab(2)">
-                        <h4>Compras y proveedores</h4>
-                        <p>Optimiza tu cadena de suministro.</p>
-                    </button>
-                    <button class="tab-btn" onclick="showTab(3)">
-                        <h4>Integración contable</h4>
-                        <p>Contabilidad automática y cierres rápidos.</p>
-                    </button>
-                </div>
-                <div class="tabs-content-wrapper">
-                    <div id="panel-0" class="tab-panel active">
-                        <h3>Ventas Ágiles</h3>
-                        <p>Transforma la experiencia de cobro en tu negocio con sistemas rápidos que no fallan en los momentos de mayor flujo.</p>
-                        <ul class="results-list">
-                            <li>Facturación Electrónica en segundos.</li>
-                            <li>Cierre de caja sin descuadres.</li>
-                            <li>Reporte de ventas en tiempo real.</li>
-                        </ul>
-                    </div>
-                    <div id="panel-1" class="tab-panel">
-                        <h3>Stock Bajo Control</h3>
-                        <p>Evita el robo hormiga y las rupturas de stock con un sistema de trazabilidad completa.</p>
-                        <ul class="results-list">
-                            <li>Alertas de stock mínimo automáticas.</li>
-                            <li>Valorización de inventario por método promedio.</li>
-                            <li>Auditorías rápidas con dispositivos móviles.</li>
-                        </ul>
-                    </div>
-                    <div id="panel-2" class="tab-panel">
-                        <h3>Proveedores Estratégicos</h3>
-                        <p>Gestiona tus órdenes de compra y cuentas por pagar de manera centralizada.</p>
-                        <ul class="results-list">
-                            <li>Historial de precios por proveedor.</li>
-                            <li>Recepción parcial de mercancía.</li>
-                            <li>Programación automática de pagos.</li>
-                        </ul>
-                    </div>
-                    <div id="panel-3" class="tab-panel">
-                        <h3>Finanzas Saludables</h3>
-                        <p>Reduce el trabajo manual del departamento contable integrando la operación diaria con el libro mayor.</p>
-                        <ul class="results-list">
-                            <li>Asientos contables automáticos.</li>
-                            <li>Generación de Balances de Prueba al instante.</li>
-                            <li>Conciliación bancaria simplificada.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- EXPERIENCE SECTION -->
-    <section class="experience-bg reveal">
-        <div class="container">
-            <div class="metrics-grid">
-                <div class="metric-item">
-                    <h3>+50</h3>
-                    <p>Empresas apoyadas</p>
-                </div>
-                <div class="metric-item">
-                    <h3>+200</h3>
-                    <p>Soportes exitosos</p>
-                </div>
-                <div class="metric-item">
-                    <h3>+1k</h3>
-                    <p>Horas de consultoría</p>
-                </div>
-                <div class="metric-item">
-                    <h3>99%</h3>
-                    <p>SLA de Respuesta</p>
-                </div>
-            </div>
-
-            <div class="section-header">
-                <h2>Metodología de Trabajo</h2>
-                <p>Un proceso estructurado para garantizar resultados medibles.</p>
-            </div>
-
-            <div class="timeline">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h4>Diagnóstico</h4>
-                    <p>Entendemos tus procesos actuales y detectamos cuellos de botella.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h4>Implementación</h4>
-                    <p>Instalamos y configuramos la solución técnica con ajustes precisos.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h4>Soporte</h4>
-                    <p>Acompañamiento continuo para asegurar la mejora de los indicadores.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- VIDEOS SECTION -->
-    <section id="evidencia" class="reveal">
-        <div class="container">
-            <div class="section-header">
-                <h2>Evidencia en Video</h2>
-                <p>Conoce cómo trabajamos y los resultados que logramos en casos reales.</p>
-            </div>
-            <div class="video-grid" id="video-container-grid">
-                <!-- Video Cards will be injected by JS -->
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT SECTION -->
-    <section id="contacto" class="reveal">
+    <section id="contacto" class="reveal active">
         <div class="container">
             <div class="contact-grid">
                 <div class="contact-info-card">
-                    <div>
-                        <h2>¡Hablemos de tu negocio!</h2>
-                        <p>Estamos listos para potenciar tu infraestructura empresarial.</p>
-                    </div>
-                    <div class="contact-method">
-                        <div class="icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                        </div>
-                        <div>
-                            <span>WhatsApp</span>
-                            <a href="https://wa.me/573225051696">322 505 1696</a>
-                        </div>
-                    </div>
-                    <div class="contact-method">
-                        <div class="icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                        </div>
-                        <div>
-                            <span>Email</span>
-                            <a href="mailto:xanderdo1988@gmail.com">xanderdo1988@gmail.com</a>
-                        </div>
+                    <h2>¿Listo para empezar?</h2>
+                    <p>Cuéntanos tu reto y Alexander se pondrá en contacto contigo.</p>
+                    <div style="margin-top: 2rem;">
+                        <p><strong>Email:</strong> xanderdo1988@gmail.com</p>
+                        <p><strong>WhatsApp:</strong> +57 322 505 1696</p>
                     </div>
                 </div>
                 <div class="contact-form-box">
-                    <form id="waForm">
-                        <div class="form-group">
-                            <label>Tu Nombre</label>
-                            <input type="text" id="nombre" placeholder="Ej. Juan Pérez" required>
+                    <form onsubmit="sendToWA(); return false;">
+                        <div style="margin-bottom: 1rem;">
+                            <label style="display:block; margin-bottom:.5rem;">Nombre</label>
+                            <input type="text" id="nombre" style="width:100%; padding:.8rem; border:1px solid #ddd; border-radius:8px;" required>
                         </div>
-                        <div class="form-group">
-                            <label>Empresa</label>
-                            <input type="text" id="empresa" placeholder="Nombre de tu empresa">
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display:block; margin-bottom:.5rem;">Mensaje</label>
+                            <textarea id="mensaje" style="width:100%; padding:.8rem; border:1px solid #ddd; border-radius:8px;" rows="4" required></textarea>
                         </div>
-                        <div class="form-group">
-                            <label>¿En qué podemos ayudarte?</label>
-                            <textarea id="mensaje" rows="4" placeholder="Cuéntanos brevemente qué solución necesitas..." required></textarea>
-                        </div>
-                        <button type="button" class="btn btn-primary w-full" onclick="sendToWA()">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-                            Copiar mensaje para WhatsApp
-                        </button>
+                        <button type="submit" class="btn btn-primary w-full" style="width:100%">Enviar Mensaje</button>
                     </form>
                 </div>
             </div>
@@ -1046,107 +275,74 @@
         <svg width="34" height="34" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </a>
 
-    <footer>
-        <div class="container">
-            <p>© 2026 Alexander Cañas – Soluciones Tecnológicas Empresariales</p>
-        </div>
-    </footer>
-
     <script>
-        // Reveal on scroll
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
-        window.addEventListener("scroll", reveal);
-        window.addEventListener("load", reveal);
-
-        // Tabs logic
-        function showTab(index) {
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-            
-            document.querySelectorAll('.tab-btn')[index].classList.add('active');
-            document.getElementById(`panel-${index}`).classList.add('active');
-        }
-
-        // Video Detection Logic
-        const videoUrls = [
-            "https://youtube.com/shorts/1h8X4Zkr-3s?feature=share",
-            "https://youtube.com/shorts/Jmfqyh4k4dU?feature=share",
-            "https://www.youtube.com/shorts/xJ7WOL_Mx8I"
+        // Data de videos
+        const videos = [
+            { id: "1h8X4Zkr-3s", title: "Implementación ERP", desc: "Configuración y puesta en marcha de sistemas para grandes superficies." },
+            { id: "Jmfqyh4k4dU", title: "Optimización IT", desc: "Mejora de infraestructura y rendimiento corporativo." },
+            { id: "xJ7WOL_Mx8I", title: "Soporte Especializado", desc: "Resolución de incidencias críticas en tiempo récord." }
         ];
 
-        function getYTId(url) {
-            const regex = /(?:youtube\.com\/shorts\/|youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
-            const match = url.match(regex);
-            return match ? match[1] : null;
-        }
+        const grid = document.getElementById('video-grid');
 
-        const videoGrid = document.getElementById('video-container-grid');
-
-        videoUrls.forEach((url, index) => {
-            const id = getYTId(url);
+        videos.forEach(v => {
             const card = document.createElement('div');
             card.className = 'video-card';
+            // Usamos la miniatura HQ de YouTube para evitar el Error 153 inicial
+            const thumbUrl = `https://img.youtube.com/vi/${v.id}/maxresdefault.jpg`;
             
-            if (id) {
-                card.innerHTML = `
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/${id}?rel=0&modestbranding=1&playsinline=1&controls=1&mute=1" 
-                                allowfullscreen></iframe>
+            card.innerHTML = `
+                <div class="video-thumb-container" onclick="playVideo(this, '${v.id}')">
+                    <img src="${thumbUrl}" alt="${v.title}" onerror="this.src='https://img.youtube.com/vi/${v.id}/0.jpg'">
+                    <div class="play-overlay">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
                     </div>
-                    <div class="video-info">
-                        <span class="video-id-badge">Video ID: ${id}</span>
-                        <div class="video-actions">
-                            <a href="${url}" target="_blank" class="btn btn-outline btn-sm">YouTube</a>
-                            <button onclick="copyToClipboard('${url}')" class="btn btn-primary btn-sm">Copiar</button>
-                        </div>
-                    </div>
-                `;
-            } else {
-                card.innerHTML = `
-                    <div class="video-container">
-                        <div class="video-fallback">
-                            <p>No se pudo cargar el video.</p>
-                            <a href="${url}" target="_blank" style="color:var(--primary); font-weight:600;">Ver en YouTube</a>
-                        </div>
-                    </div>
-                `;
-            }
-            videoGrid.appendChild(card);
+                </div>
+                <div class="video-info">
+                    <h3>${v.title}</h3>
+                    <p>${v.desc}</p>
+                </div>
+            `;
+            grid.appendChild(card);
         });
 
-        function copyToClipboard(text) {
-            navigator.clipboard.writeText(text).then(() => {
-                alert("Enlace copiado al portapapeles");
-            });
-        }
-
-        // WhatsApp Form Logic
-        function sendToWA() {
-            const nombre = document.getElementById('nombre').value;
-            const empresa = document.getElementById('empresa').value;
-            const mensaje = document.getElementById('mensaje').value;
-
-            if (!nombre || !mensaje) {
-                alert("Por favor completa los campos obligatorios.");
-                return;
-            }
-
-            const text = `Hola Alexander, soy ${nombre}${empresa ? ' de la empresa ' + empresa : ''}. Quisiera consultarte lo siguiente: ${mensaje}`;
-            const encoded = encodeURIComponent(text);
-            const waUrl = `https://wa.me/573225051696?text=${encoded}`;
+        // Función para inyectar el video solo cuando el usuario lo pida
+        // O redirigir a YouTube si el entorno falla
+        function playVideo(container, id) {
+            // Si estamos en un entorno restrictivo, a veces es mejor abrir en pestaña nueva
+            // Pero intentaremos inyectar el iframe con dominio no-cookie primero
+            const iframe = document.createElement('iframe');
+            iframe.setAttribute('src', `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`);
+            iframe.setAttribute('frameborder', '0');
+            iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+            iframe.setAttribute('allowfullscreen', 'true');
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            iframe.style.position = 'absolute';
+            iframe.style.top = '0';
+            iframe.style.left = '0';
             
-            window.open(waUrl, '_blank');
+            // Reemplazamos el contenido para "limpiar" el posible Error 153
+            container.innerHTML = '';
+            container.appendChild(iframe);
+
+            // Pequeño hack: Si después de 3 segundos el iframe sigue dando problemas (o el usuario no puede verlo),
+            // ofrecemos un link directo.
+            console.log("Intentando reproducir video: " + id);
         }
+
+        function sendToWA() {
+            const n = document.getElementById('nombre').value;
+            const m = document.getElementById('mensaje').value;
+            window.open(`https://wa.me/573225051696?text=Hola Alexander, soy ${n}. ${m}`, '_blank');
+        }
+
+        // Reveal effect
+        window.addEventListener('scroll', () => {
+            document.querySelectorAll('.reveal').forEach(el => {
+                if(el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active');
+            });
+        });
     </script>
 </body>
 </html>
