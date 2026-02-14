@@ -67,7 +67,6 @@
             transform: translateY(0); 
         }
 
-        /* Staggered Delay for grids */
         .reveal-delay-1 { transition-delay: 0.1s; }
         .reveal-delay-2 { transition-delay: 0.2s; }
         .reveal-delay-3 { transition-delay: 0.3s; }
@@ -119,15 +118,30 @@
         .step { text-align: center; z-index: 1; }
         .step-number { width: 64px; height: 64px; background: var(--accent); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.5rem; margin: 0 auto 1.5rem; border: 4px solid rgba(255,255,255,0.1); }
 
-        /* VIDEOS */
+        /* --- NUEVO ESTILO DE VIDEOS --- */
         .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
-        .video-card { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; border: 1px solid rgba(0,0,0,0.05); transition: var(--transition); }
-        .video-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
-        .video-thumb-container { position: relative; width: 100%; aspect-ratio: 9 / 16; background: #000; cursor: pointer; }
-        .video-thumb-container img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; opacity: 0.9; }
-        .video-thumb-container:hover img { opacity: 0.7; transform: scale(1.05); }
-        .play-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 70px; height: 70px; background: rgba(19, 96, 168, 0.95); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; box-shadow: 0 10px 30px rgba(0,0,0,0.3); pointer-events: none; transition: 0.3s; }
-        .video-thumb-container:hover .play-overlay { background: var(--accent); transform: translate(-50%, -50%) scale(1.1); }
+        .video-card { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; border: 1px solid rgba(0,0,0,0.05); transition: var(--transition); position: relative; }
+        .video-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.2); }
+        
+        .video-thumb-container { position: relative; width: 100%; aspect-ratio: 9 / 16; background: #000; cursor: pointer; overflow: hidden; }
+        .video-thumb-container img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s cubic-bezier(0.4, 0, 0.2, 1); opacity: 0.85; }
+        .video-thumb-container:hover img { opacity: 0.6; transform: scale(1.08); }
+        
+        /* Badge para los videos */
+        .video-badge { position: absolute; top: 1.5rem; left: 1.5rem; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); color: white; padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; z-index: 10; border: 1px solid rgba(255,255,255,0.2); }
+        
+        .play-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 75px; height: 75px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 0 rgba(19, 96, 168, 0.4); pointer-events: none; transition: 0.3s; z-index: 5; }
+        .video-thumb-container:hover .play-overlay { background: var(--accent); transform: translate(-50%, -50%) scale(1.1); box-shadow: 0 0 0 20px rgba(19, 96, 168, 0); animation: pulse-blue 2s infinite; }
+        
+        @keyframes pulse-blue {
+            0% { box-shadow: 0 0 0 0 rgba(19, 96, 168, 0.5); }
+            70% { box-shadow: 0 0 0 20px rgba(19, 96, 168, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(19, 96, 168, 0); }
+        }
+
+        .video-info { padding: 1.8rem; }
+        .video-info h3 { font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--primary-dark); }
+        .video-info p { font-size: 0.95rem; color: var(--muted); line-height: 1.5; }
 
         .wa-float { position: fixed; bottom: 30px; right: 30px; width: 65px; height: 65px; background: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); z-index: 1000; transition: var(--transition); }
         .wa-float:hover { transform: scale(1.1) rotate(5deg); }
@@ -152,7 +166,7 @@
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#soluciones">Soluciones</a></li>
-                <li><a href="#evidencia">Evidencia</a></li>
+                <li><a href="#experiencia">Expertise</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
             <a href="https://wa.me/573225051696" target="_blank" class="btn btn-primary btn-sm">WhatsApp</a>
@@ -163,10 +177,10 @@
         <div class="container hero-grid">
             <div class="hero-content reveal">
                 <h1>Optimiza tu empresa con tecnología experta</h1>
-                <p>Implementación de ERP, soporte de infraestructura y mejora de procesos empresariales para negocios en crecimiento.</p>
+                <p>Implementación de ERP, soporte de infraestructura y mejora de procesos empresariales para negocios que buscan el siguiente nivel.</p>
                 <div class="hero-ctas">
                     <a href="https://wa.me/573225051696" target="_blank" class="btn btn-primary">Hablar por WhatsApp</a>
-                    <a href="#evidencia" class="btn btn-outline">Ver evidencia</a>
+                    <a href="#experiencia" class="btn btn-outline">Ver nuestro trabajo</a>
                 </div>
             </div>
             <div class="hero-visual reveal">
@@ -223,15 +237,15 @@
                 <div class="tabs-content-wrapper reveal reveal-delay-2">
                     <div id="panel-0" class="tab-panel active">
                         <h3>Ventas Ágiles y POS</h3>
-                        <p>Facturación electrónica en segundos y control total del punto de venta en tiempo real. Integramos sistemas que eliminan errores humanos.</p>
+                        <p>Facturación electrónica en segundos y control total del punto de venta en tiempo real. Integramos sistemas que eliminan errores humanos y agilizan el cobro.</p>
                     </div>
                     <div id="panel-1" class="tab-panel">
                         <h3>Stock Inteligente</h3>
-                        <p>Evita el robo hormiga y mantén tus costos actualizados automáticamente. Sincroniza almacenes físicos con tu contabilidad sin esfuerzo.</p>
+                        <p>Evita el robo hormiga y mantén tus costos actualizados automáticamente. Sincroniza almacenes físicos con tu contabilidad sin esfuerzo manual.</p>
                     </div>
                     <div id="panel-2" class="tab-panel">
                         <h3>Infraestructura Segura</h3>
-                        <p>Protección de datos críticos y migración a la nube para que tu equipo trabaje desde cualquier lugar con total seguridad.</p>
+                        <p>Protección de datos críticos y migración a la nube para que tu equipo trabaje desde cualquier lugar con total seguridad y sin caídas de sistema.</p>
                     </div>
                 </div>
             </div>
@@ -243,23 +257,23 @@
         <div class="container">
             <div class="metrics-grid reveal">
                 <div class="metric-item"><h3>+50</h3><p>Proyectos Exitosos</p></div>
-                <div class="metric-item"><h3>99%</h3><p>Satisfacción Cliente</p></div>
+                <div class="metric-item"><h3>99%</h3><p>Disponibilidad</p></div>
                 <div class="metric-item"><h3>15</h3><p>Años Experiencia</p></div>
             </div>
             <div class="timeline reveal">
-                <div class="step"><div class="step-number">1</div><h4>Diagnóstico</h4><p>Análisis de fallas</p></div>
-                <div class="step"><div class="step-number">2</div><h4>Ejecución</h4><p>Implementación ágil</p></div>
-                <div class="step"><div class="step-number">3</div><h4>Soporte</h4><p>Acompañamiento 24/7</p></div>
+                <div class="step"><div class="step-number">1</div><h4>Diagnóstico</h4><p>Análisis de necesidades</p></div>
+                <div class="step"><div class="step-number">2</div><h4>Ejecución</h4><p>Implementación técnica</p></div>
+                <div class="step"><div class="step-number">3</div><h4>Soporte</h4><p>Acompañamiento continuo</p></div>
             </div>
         </div>
     </section>
 
-    <!-- EVIDENCIA VIDEO -->
-    <section id="evidencia">
+    <!-- NUEVA SECCIÓN: EXPERTISE EN ACCIÓN -->
+    <section id="experiencia">
         <div class="container">
             <div class="section-header reveal">
-                <h2>Casos de Éxito</h2>
-                <p>Mira cómo transformamos la operación real de nuestros clientes.</p>
+                <h2>Expertise en Acción</h2>
+                <p>Cápsulas informativas sobre cómo nuestras soluciones impulsan la eficiencia y el crecimiento de tu empresa.</p>
             </div>
             <div class="video-grid" id="video-grid"></div>
         </div>
@@ -267,7 +281,7 @@
 
     <section id="contacto">
         <div class="container">
-            <div class="section-header reveal"><h2>Hablemos de tu proyecto</h2><p>Déjanos tu mensaje y te contactaremos en menos de 24 horas.</p></div>
+            <div class="section-header reveal"><h2>Hablemos de tu proyecto</h2><p>Déjanos tu mensaje y te contactaremos para una consultoría inicial sin costo.</p></div>
             <form onsubmit="sendToWA(); return false;" class="reveal reveal-delay-1" style="max-width: 600px; margin: 0 auto; background: white; padding: 2.5rem; border-radius: 1.5rem; box-shadow: var(--shadow); border: 1px solid rgba(0,0,0,0.05);">
                 <div style="margin-bottom: 1.2rem;">
                     <label style="display:block; margin-bottom:0.5rem; font-weight:500;">Nombre Completo</label>
@@ -297,33 +311,29 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                    // Una vez animado, dejamos de observar para rendimiento
                     observer.unobserve(entry.target);
                 }
             });
         }, revealOptions);
 
-        // Inicializamos observadores después de cargar el DOM
         window.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.reveal').forEach(el => {
                 revealObserver.observe(el);
             });
-            // Generar videos después del DOM
             renderVideos();
         });
 
-        // --- TABS LOGIC ---
         function showTab(i) {
             document.querySelectorAll('.tab-btn, .tab-panel').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('.tab-btn')[i].classList.add('active');
             document.querySelectorAll('.tab-panel')[i].classList.add('active');
         }
 
-        // --- VIDEOS RENDER & LOGIC ---
+        // --- VIDEOS REDEFINIDOS ---
         const videos = [
-            { id: "1h8X4Zkr-3s", title: "Implementación ERP", desc: "Digitalización de procesos operativos en Retail." },
-            { id: "Jmfqyh4k4dU", title: "Optimización IT", desc: "Infraestructura escalable para startups locales." },
-            { id: "xJ7WOL_Mx8I", title: "Soporte Técnico", desc: "Mantenimiento preventivo y correctivo corporativo." }
+            { id: "1h8X4Zkr-3s", tag: "Estrategia", title: "Transformación Digital con ERP", desc: "Cómo unificamos la contabilidad y ventas para eliminar el caos operativo." },
+            { id: "Jmfqyh4k4dU", tag: "Infraestructura", title: "Tecnología que Escala", desc: "Montaje de servidores y redes diseñadas para soportar el crecimiento de tu negocio." },
+            { id: "xJ7WOL_Mx8I", tag: "Soporte", title: "Respaldo Técnico de Élite", desc: "Nuestra metodología de mantenimiento preventivo para evitar paros de producción." }
         ];
 
         function renderVideos() {
@@ -334,6 +344,7 @@
                 const thumb = `https://img.youtube.com/vi/${v.id}/maxresdefault.jpg`;
                 
                 card.innerHTML = `
+                    <div class="video-badge">${v.tag}</div>
                     <div class="video-thumb-container" onclick="playVideo(this, '${v.id}')">
                         <img src="${thumb}" alt="${v.title}" onerror="this.src='https://img.youtube.com/vi/${v.id}/0.jpg'">
                         <div class="play-overlay">
@@ -346,13 +357,11 @@
                     </div>
                 `;
                 vGrid.appendChild(card);
-                // Observar la nueva tarjeta de video inyectada
                 revealObserver.observe(card);
             });
         }
 
         function playVideo(container, id) {
-            // Solución definitiva Error 153 + Autoplay
             container.innerHTML = `<iframe 
                 src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&rel=0&modestbranding=1&playsinline=1" 
                 style="width:100%;height:100%;border:0;position:absolute;top:0;left:0;" 
@@ -360,7 +369,6 @@
                 frameborder="0"></iframe>`;
         }
 
-        // --- CONTACT LOGIC ---
         function sendToWA() {
             const nombre = document.getElementById('nombre').value;
             const mensaje = document.getElementById('mensaje').value;
